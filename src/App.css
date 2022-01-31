@@ -1,38 +1,32 @@
-.App {
-  text-align: center;
+.ql-editor  {
+    display: block;
+    max-width: 100vw;
+    min-height: 300px;
+    width: 80vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ql-video {
+    width: 100vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ql-editor img {
+  max-height: 300px;
+  object-fit: contain;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ .wrapper-class {
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+.editor-class {
+  background-color:lightgray;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+.toolbar-class {
+  border: 1px solid #ccc;
+ 
 }
