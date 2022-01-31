@@ -94,6 +94,10 @@ const CreateForm = () => {
     }
   };
 
+  const descartar = () => {
+    return <Navigate to="/user/creator" />;
+  }
+
   const titleHandler = (e) => {
     setPostTitle(e);
   };
@@ -232,12 +236,7 @@ const CreateForm = () => {
             >
               Publicar
             </btn>
-            <btn
-              className="bg-red-700 text-white hover:bg-red-900 rounded-lg text-2xl px-10 py-3 my-3 cursor-pointer w-min"
-              onClick={() => put()}
-            >
-              Descartar
-            </btn>
+
           </div>
         </div>
       )}

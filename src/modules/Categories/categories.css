@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-
+  
   column-gap: 3%;
   padding: 0 3% 0 3%;
   margin-top: 5vh;
@@ -19,7 +19,7 @@
   border-radius: 5px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-  margin-bottom: 2vh;
+  margin-bottom: 6%;
 }
 
 .category-item-img {
@@ -60,7 +60,7 @@
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 20px;
   /* or 133% */
 
   letter-spacing: 0.0703846px;

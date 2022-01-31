@@ -1,13 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Access } from "../../Access";
-import {token} from '../../Access'
+import { token } from "../../Access";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import ver from "./ver.png";
+
 
 const Auth = () => {
   const { logged, setLogged } = useContext(Access);
-  const {tokenValue, setTokenValue} = useContext(token)
+  const { tokenValue, setTokenValue } = useContext(token);
   const [data, setData] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
+  const [msg, setMsg] = useState("");
+  
+
+
+
 
   const login = () => {
     if (logged === false) {
@@ -20,20 +28,11 @@ const Auth = () => {
       );
     } else {
       return (
-        <div className="w-full flex flex-col justify-center items-center mt-4">
-          <p className="block h-14 w-2/4 text-center text-2xl font-bold bg-green-600 p-2 rounded-full">
-            Usuario identificado
-          </p>
-          <Link
-            className="mt-11 bg-blue-500 text-white font-bold text-xl p-10 rounded-full"
-            to="/user/creator"
-          >
-            Pagina del creador
-          </Link>
-        </div>
+        <Navigate to="/user/creator" />
       );
     }
   };
+
   const handleForm = (e) => {
     e.preventDefault();
 
@@ -47,9 +46,12 @@ const Auth = () => {
         if (res.data.token) {
           setLogged(true);
           setTokenValue(res.data.token);
+          return <Navigate to="/user/creator" />;
         }
+      })
+      .catch(() => {
+        setMsg("Usuario o contraseña incorrectos");
       });
-      
   };
 
   return (
@@ -59,7 +61,10 @@ const Auth = () => {
       {logged ? (
         ""
       ) : (
-        <div className="w-screen  h-96 flex justify-center items-center ">
+        <div
+          id="form"
+          className="w-screen  h-96 flex flex-col  justify-center items-center "
+        >
           <form
             className="flex flex-col w-2/3 md:w-1/3 "
             action=""
@@ -77,18 +82,30 @@ const Auth = () => {
               id="usuario"
               placeholder="Usuario"
             />
+
             <label
-              className="block text-gray-800 text-lg font-bold mb-2"
+              className="block  text-gray-800 text-lg font-bold mb-2"
               htmlFor="Contraseña"
             >
               Contraseña
             </label>
-            <input
-              type="password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-              id="contraseña"
-              placeholder="**************"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="relative shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                id="contraseña"
+                placeholder="Contraseña"
+              />
+              <img
+                className="absolute hover:opacity-50 top-2 right-2 w-6"
+                onClick={() => setShowPassword(!showPassword)}
+                src={ver}
+                alt=""
+              />
+            </div>
+          <div className="block w-full text-center">
+            <h3 className="block">{msg}</h3>
+          </div>
             <button
               class="block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-3"
               type="submit"
@@ -98,7 +115,6 @@ const Auth = () => {
           </form>
         </div>
       )}
-          
     </div>
   );
 };

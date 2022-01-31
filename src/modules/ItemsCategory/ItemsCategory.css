@@ -16,7 +16,7 @@
   width: 100%;
   border: solid 1px rgb(202, 202, 202);
   overflow: hidden;
-  height: 33vh;
+  height: 18rem;
   border-radius: 5px;
   margin: 0%;
 }
@@ -72,7 +72,7 @@
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 20px;
   /* or 133% */
 
   letter-spacing: 0.0703846px;
@@ -92,7 +92,8 @@
 }
 
 .card1 {
-  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
 }
 
 .card1 .items-cat-img {

@@ -448,7 +448,7 @@ body {
   /* background-color: white;
 border-radius: 80px; */
 }
-.recent-card-container{
+.recent-card-container {
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -507,7 +507,7 @@ border-radius: 80px; */
 
 .news-item img {
   width: 100%;
-
+  margin-top: 2vh;
   object-fit: contain;
   margin-bottom: 2vh;
 }

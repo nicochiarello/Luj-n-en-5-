@@ -95,7 +95,14 @@ const Config = () => {
   const handleMain = (i) => {
     axios
       .patch(`https://lujan-en-5-api.herokuapp.com/api/posts/${i._id}`)
-      .then(() => window.location.reload(false));
+      .then(() =>
+        axios
+          .get("https://lujan-en-5-api.herokuapp.com/api/posts/")
+          .then((res) => {
+            setPosts(res.data);
+          })
+      );
+      
   };
 
   const NavbarCategoriesHandler = (e) => {
@@ -137,7 +144,9 @@ const Config = () => {
             onClick={() => setCategoryManager(!categoryManager)}
             className="flex bg-gray-300 py-3 w-full justify-between px-2 mt-5"
           >
-            <p className="text-2xl w-full font-bold pl-2">Elija la nota de portada</p>
+            <p className="text-2xl w-full font-bold pl-2">
+              Elija la nota de portada
+            </p>
             {arrowSelect()}
           </div>
           {categoryManager
@@ -153,8 +162,8 @@ const Config = () => {
               ))
             : ""}
         </div>
-        <div className="w-full bg-gray-300 py-5 flex items-center mt-5">
-          <p>Seleccione las categorias a mostrar en la página inicial:</p>
+        <div className=" w-full  px-2 mx-7 bg-gray-300 py-5 flex items-center mt-5">
+          <p className="w-full">Seleccione las categorias a mostrar en la página inicial:</p>
         </div>
         <Select
           closeMenuOnSelect={false}
@@ -163,7 +172,7 @@ const Config = () => {
           onChange={(e) => inputValueHandler(e)}
           defaultValue={defaultValueSelect()}
         />
-        <div className="w-full bg-gray-300 py-5 flex items-center mt-5">
+        <div className="w-full px-2 bg-gray-300 py-5 flex items-center mt-5">
           <p>Seleccione las categorias a mostrar en el menú de navegación:</p>
         </div>
         <CreatableSelect

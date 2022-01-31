@@ -150,5 +150,23 @@ export const GlobalStyles = createGlobalStyle`
                 border: 1px solid ${(props) => props.theme.colorbordes};
         color: ${(props) => props.theme.colortext};
     }
+    .redes{
+        color: ${(props) => props.theme.colortext};
+    }
+    .creator-title{
+        color: ${(props) => props.theme.colortext};
+    }
+    .creator-description{
+        color: ${(props) => props.theme.colortext};
+    }
+    .copete{
+        color: ${(props) => props.theme.colortext};
+    }
+    .creator{
+        color: ${(props) => props.theme.colortext};
+    }
+    .info-cat-creator{
+        color: ${(props) => props.theme.colortext};
+    }
 
 `;

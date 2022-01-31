@@ -11,7 +11,7 @@
     height: 36px;
     border-right: none;
     padding: 5px;
-    border: 3px solid #00B4CC;
+    border: 3px solid #9e9e9e;
     border-radius: 5px 0 0 5px;
     outline: none;
 
@@ -25,11 +25,11 @@
     padding: 5px;
     height: 36px;
     width: 46px;
-    background-color: #00B4CC;
+    background-color: #9e9e9e;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #00B4CC;
+    border: 1px solid #9e9e9e;
     border-radius: 0 5px 5px 0;
     
 }
@@ -51,8 +51,9 @@
 .search-content-items{
     display: flex;
     width: 60%;
-    height: 15rem;
+    height: 12rem;
     overflow: hidden;
+   
     
 }
 
@@ -65,11 +66,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0.2%;
+    padding: 10px;
+
+      font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
     
 }
 .search-content-items-info h3{
-    font-weight: bold;
+      font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 20px;
 }
 
 
