@@ -9,6 +9,7 @@ import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { ClipLoader } from "react-spinners";
 import { token } from "../../Access";
+import swal from "sweetalert";
 const CreateForm = () => {
   const [posts, setPosts] = useState([]);
   const [postTitle, setPostTitle] = useState("");
@@ -80,7 +81,17 @@ const CreateForm = () => {
         })
         .then((res) => setPosts([...posts, res.data]))
         .then(() => setIsLoading(false))
-        .then(() => setDone(true));
+        .then(() => setDone(true))
+        .catch((err) => {
+          swal({
+            title: `Ha habido un error: ${err}`,
+            button: "aceptar",
+            icon: "error",
+          })
+          setIsLoading(false)
+
+        }
+        );
 
       return <Navigate to="/user/creator" />;
     } else {

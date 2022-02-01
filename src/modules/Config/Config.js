@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
+import swal from "sweetalert";
 
 const Config = () => {
   const [posts, setPosts] = useState([]);
@@ -133,18 +134,24 @@ const Config = () => {
       .put("https://lujan-en-5-api.herokuapp.com/api/posts/phrase", {
         phrase: dayPhraseUpdated,
       })
-      .then(() => window.location.reload(true));
+      .then(() =>
+        swal({
+          title: "Frase actualizada",
+          button: "aceptar",
+          icon: "success",
+        })
+      );
   }
 
   return (
-    <div>
+    <div className=" px-16">
       <div>
-        <div className=" mt-28 sm:mt-0 flex flex-col w-screen px-7">
+        <div className=" mt-28 sm:mt-0 flex flex-col w-full">
           <div
             onClick={() => setCategoryManager(!categoryManager)}
-            className="flex bg-gray-300 py-3 w-full justify-between px-2 mt-5"
+            className="flex bg-gray-300 w-full py-3 justify-between mt-5"
           >
-            <p className="text-2xl w-full font-bold pl-2">
+            <p className="text-2xl font-bold pl-2">
               Elija la nota de portada
             </p>
             {arrowSelect()}
@@ -162,8 +169,8 @@ const Config = () => {
               ))
             : ""}
         </div>
-        <div className=" w-full  px-2 mx-7 bg-gray-300 py-5 flex items-center mt-5">
-          <p className="w-full">Seleccione las categorias a mostrar en la página inicial:</p>
+        <div className=" w-full  px-2 bg-gray-300 py-5 flex items-center mt-5">
+          <p>Seleccione las categorias a mostrar en la página inicial:</p>
         </div>
         <Select
           closeMenuOnSelect={false}
