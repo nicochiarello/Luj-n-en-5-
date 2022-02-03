@@ -29,7 +29,7 @@ const ItemsCategory = (props) => {
         <Link to={`/noticias/${i._id}`} className="items-cat">
           <div className="items-cat-img">
             <img src={i.photo} alt="" />
-            <i class="bx bxs-share-alt"></i>
+       
           </div>
           <div className="items-cat-info">
             <p className="data">

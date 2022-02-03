@@ -10,6 +10,7 @@ import fb from "./assets/facebook.ico";
 import ig from "./assets/instagram.ico";
 import tw from "./assets/twitter.ico";
 import wpp from "./assets/whatsapp.ico";
+import email from "./assets/email.png"
 import { BeatLoader } from "react-spinners";
 import swal from "sweetalert";
 
@@ -85,22 +86,22 @@ const NewsItem = () => {
             <h2>{singlePost.title}</h2>
             <div className="social-media">
               <a
-                href={`https://www.facebook.com/sharer.php?u=localhost:3000/noticias/${singlePost._id}`}
+                href={`https://www.facebook.com/sharer.php?u=https://www.lujanen5.com/noticias/${singlePost._id}`}
                 target="_blank"
               >
                 <img src={fb} alt="" />
               </a>
-              <a href="">
-                <img src={ig} alt="" />
+              <a href={`mailto:?subject=Nota de luján en 5&amp;body=Luján en 5 hizo una publicación http://www.lujanen5.com/noticias/${singlePost._id}.`}>
+                <img src={email} alt="" />
               </a>
               <a
-                href={`https://twitter.com/share?url=http://localhost:3000/noticias/${singlePost._id}&text=nota de lujan en 5`}
+                href={`https://twitter.com/share?url=http://www.lujanen5.com/noticias/${singlePost._id}&text=${singlePost.title}`}
               >
                 <img src={tw} alt="" />
               </a>
 
               <a
-                href={`https://wa.me/?text=Lujan en 5 publico algo interesante http://localhost:3000/noticias/${singlePost._id}`}
+                href={`https://wa.me/?text=${singlePost.title} http://www.lujanen5.com/noticias/${singlePost._id}`}
                 target="_blank"
               >
                 <img src={wpp} alt="" />
@@ -141,19 +142,19 @@ const NewsItem = () => {
             <strong>Noticias recientes</strong>{" "}
           </h4>
           <div className="recent-card-container">
-            {posts.slice(0, 6).filter((i)=>i._id !== id ).map((i) => (
-              <Link className="recent-card" to={`/noticias/${i._id}`}>
-
-            
-                <div className="recent-card-image">
-                  <img src={i.photo} alt="" />
-                </div>
-                <div className="recent-card-info">
-                  <h4>{i.title}</h4>
-                </div>
-             
-              </Link>
-            ))}
+            {posts
+              .slice(0, 6)
+              .filter((i) => i._id !== id)
+              .map((i) => (
+                <Link className="recent-card" to={`/noticias/${i._id}`}>
+                  <div className="recent-card-image">
+                    <img src={i.photo} alt="" />
+                  </div>
+                  <div className="recent-card-info">
+                    <h4>{i.title}</h4>
+                  </div>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
